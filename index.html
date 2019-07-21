@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="UTF-8">
+	<head>
+		<!-- include extjs css -->
+		<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css">
+		<!-- include extjs uncompressed and the script file for the application -->
+		<script type = "text/javascript" src = "extjs/ext-all-dev.js"></script> 
+		<title>Ext js example</title>
+	</head>
+	<body></body>
+</html>
+<script type="text/javascript">
+// for making sure dom is loaded fully
+	// Ext.onReady(function() {
+	// 	// create hello world
+	// 	Ext.Msg.alert('Hello world','All set!!!');
+	// });
+
+
+	// displaying hello world in a label
+Ext.onReady(function(){
+		// 	// UI Components
+		// 	// you create an instance of a component and you render it
+		// 	// for label
+		// 	Ext.create("Ext.form.Label",{
+		// 		text:"Hello World",
+		// 		renderTo: Ext.getBody()
+		// 	});		
+		// 	// creating a button
+		// 	Ext.create("Ext.Button",{
+		// 		text:"Hello world",
+		// 		// addind an event to the button
+		// 		handler:function(){
+		// 			Ext.Msg.alert("You clicked a button")
+		// 		},
+		// 		renderTo:Ext.getBody()
+		// 	});
+		// // //////////////////////////////////////////////////////////
+		// 	// create a panel and add a textbox and button to it
+		// 	Ext.create("Ext.Panel",{
+		// 		title:"Hello world Panel",
+		// 		// this the various UI components that must be added to the form
+		// 		items: [
+		// 			Ext.create("Ext.form.Text",{
+		// 				fieldLabel: "Name",
+		// 				id:"nameField"
+		// 			}),
+		// 			Ext.create("Ext.Button",{
+		// 				text:"Click Me",
+		// 				handler:function(){
+		// 					Ext.Msg.alert('Your Name is ',Ext.getCmp("nameField").getValue());
+		// 				}
+		// 			})
+		// 		],
+		// 		renderTo:Ext.getBody()
+		// 	});
+
+	//////////////////////////////////////////////////////////////////////////
+	// creating customers
+
+	// Ext.define("FirstClass",{
+	// 	// declaring vairables
+	// 	config:{
+	// 		title:"",
+	// 		price : 0,
+	// 		authors:[]
+	// 	},
+	// 	constructor:function(cfg){
+	// 		// initiating class properties using this keyword making the properties visible to the object
+	// 		// the initConfig initializes all the properties
+	// 		this.initConfig(cfg);
+	// 	},
+	// 	// accessors for the properties(get and set ) declared are automatically create
+	// 	// if you want to change what individually happens to the set value
+	// 	setPrice:function(priceValue){
+	// 		if (priceValue < 5) {
+	// 			console.log("Invalid value for price " + priceValue);
+	// 		} else {
+	// 			this.price = priceValue;
+	// 		}
+	// 	},
+	// 	// read function to display anything that you want from the class
+	// 	read:function(){
+	// 		console.log("Reading",this.getPrice())
+	// 	}
+	// });
+
+	// // creating an object of the class
+	// let xml = Ext.create("FirstClass","Book",{
+	// 	title: "XML for beginners",
+	// 	authors:["Sam","Kim"]
+	// });
+	// xml.setTitle="This is the title";
+	// xml.setPrice(5);
+	// console.log(xml.read());
+//////////////////////////////////////////////////////////////////////////
+	// Inheritance
+	// Ext.define("Employee",{
+	// 	config:{
+	// 		employeeid : "",
+	// 		name : "",
+	// 		salary:0
+	// 	},
+	// 	constructor: function(cfg){
+	// 		this.initConfig(cfg);
+	// 	},
+	// 	getSalary:function(salaryValue){
+	// 		if (salaryValue<1500) {
+	// 			console.log("We stop work in december")
+	// 		} else {
+	// 			this.salary = salaryValue;
+	// 			console.log("we going to take it like that",+ this.salary)
+
+	// 		}
+	// 	},
+	// 	work:function(){
+	// 		console.log(this.getName() + "is working")
+	// 	}
+	// });
+	// // accessing the EMployee class
+	// // let employeeDetails = Ext.create("Employee",{
+	// // 	name:"Sorce kwarteng",
+	// // });
+	// // console.log(employeeDetails.work());
+	// // console.log(employeeDetails.getSalary(2000));
+
+	// // creating the manager class and extending the employee class so it has access to the basic functions
+	// Ext.define("Manager",{
+	// 	extend:"Employee",
+	// 	config:{
+	// 		level:1 
+	// 	},
+	// 	constructor:function(cfg){
+	// 		this.initConfig(cfg);
+	// 	}
+	// });
+
+	// // now creating an object of the manager class and using it to access the properties of the employee class
+	// let managerDetails = Ext.create('Manager',{
+	// 	employeeid:"DS123",
+	// 	name:"Sorce Kwarteng",
+	// 	level:4
+	// });
+	// console.log(managerDetails.work())
+	// console.log(managerDetails.getEmployeeid())
+	// console.log(managerDetails.getLevel())
+//////////////////////////////////////////////////////////////////////
+// UI CONTROLS AND LAYOUT
+// var pnl = Ext.create("Ext.panel.Panel", {
+// items: [
+// Ext.create("Ext.Component", {
+// html: "Raw Component",
+// itemId : "rawcomp1",
+// listeners: {
+// activate: function () {
+// console.log("activate")
+// },
+// added: function () {
+// console.log("added")
+// },
+// afterrender: function () {
+// console.log("afterrender")
+// },
+// beforeactivate: function () {
+// console.log("beforeactivate")
+// },
+// beforedeactivate: function () {
+// console.log("beforedeactivate")
+// },
+// beforerender: function () {
+// console.log("beforerender")
+// },
+// beforeshow: function () {
+// console.log("beforeshow")
+// },
+// beforedestroy: function () {
+// console.log("beforedestroy")
+// },
+// destroy: function () {
+// console.log("destroy")
+// },
+// render: function () {
+// console.log("render")
+// },
+// show: function () {
+// console.log("show")
+// },
+// beforehide: function () {
+// console.log("beforehide")
+// },
+// hide: function () {
+// console.log("hide")
+// },
+// enable: function () {
+// console.log("enable")
+// },
+// disable: function () {
+// console.log("disable")
+// },
+// removed: function () {
+// console.log("removed")
+// }
+// }
+// })
+// ],
+// renderTo: Ext.getBody()
+// });
+// console.log("******Calling disable")
+// pnl.getComponent("rawcomp1").disable();
+// console.log("******Calling enable")
+// pnl.getComponent("rawcomp1").enable();
+// console.log("******Calling hide")
+// pnl.getComponent("rawcomp1").hide();
+// console.log("******Calling show")
+// pnl.getComponent("rawcomp1").show();
+// console.log("******Calling destroy")
+// pnl.getComponent("rawcomp1").destroy();
+
+//Extjs Xtype
+
+
+
+let nameTextBox = {
+		xtype:"textfield",
+		fieldLabel: "Name",
+		id:"textfieldId"
+	};
+let submitButton = {
+		xtype:"button",
+		text:"Submit",
+		id:"submitButtonId",
+		handler:function(){
+			Ext.Msg.alert("Hello world");
+		}
+	};
+
+// creating panel and making the references for the various components
+let mainContainer = Ext.create("Ext.container.Container",{
+	defaults:{
+		width:500,
+		height:150
+	},
+	title:"Xtype example",
+	renderTo:Ext.getBody(),
+	// items attribute refers to the number of components to add to the container
+	listeners: {
+		beforeadd: function () {
+		// console.log("beforeadd");
+		},
+		add: function () {
+		// console.log("add");
+		},
+		beforeremove: function () {
+		// console.log("beforeremove");
+		},
+		remove: function () {
+		// console.log("remove");
+		}
+	}
+
+});
+mainContainer.add({ xtype: "component", html: "Raw",id:"comp1" });
+mainContainer.add(nameTextBox);
+mainContainer.add(submitButton);
+// remove all components in the container
+mainContainer.remove("comp1");
+mainContainer.remove("textfieldId");
+mainContainer.remove("submitButtonId");
+///////////////////////////////////////////////////////////////////
+// creating a window that will be a dragable,floatable and resizeable panel, can be configured to be a modal
+// windows are made to be show
+let mainwindow = Ext.create("Ext.window.Window",{
+	defaults:{
+		width:500,
+		height:40
+	},
+	title:"Find and Replace",
+	modal:true,
+	items:[{
+		xtype:"textfield",
+		fieldLabel:"UserName"
+	},
+	{
+		xtype:"textfield",
+		fieldLabel:"Password"
+	}],
+	buttons:[{
+		text:"Find next"
+	},{
+		text:"Cancel"
+	}]
+});
+// mainwindow.show();
+
+// creating menu menu
+let mainMenu = Ext.create("Ext.menu.Menu",{
+	title:"Main Menu",
+	items:[
+		{text:"Undo"},
+		{text:"Cut"},
+		{text:"Copy"},
+		{text:"Paste"},
+	]
+})
+// mainMenu.show();
+
+// adding a menu to an add button
+Ext.create("Ext.Button",{
+	text:"Actions",
+	menu:mainMenu,
+	// renderTo:Ext.getBody()
+});
+
+// creating a tab panel
+Ext.create("Ext.tab.Panel",{
+	// title:"Main Tab",
+	plain:false,
+	height:200,
+	// tabPosition:"bottom",
+	items:[
+		{
+			title:"Home",
+			html:"Welcome to Ext JS 4"
+		},
+		{
+			title:"Api Docs",
+			html:"Api Documentation"
+		},
+		{
+			title:"Guides",
+			html:"Standard guides"
+		}
+
+	],
+	// tab rendering
+	// renderTo:Ext.getBody()
+});
+
+// form panel
+
+let formWindow = Ext.create("Ext.form.Panel",{
+	defaults:{
+		width:500
+	},
+	// modal:true,
+	title:"Form Widow",
+	items:[
+		{
+			xtype:"textfield",
+			fieldLabel:"Textbox",
+			vType:"e-mail",
+			allowBlank:false,
+			maxLength:100,
+			msgTarget:"side",
+			validator : function(val){
+				if(val.indexOf("#") != -1 || val.indexOf(".") != -1)
+				return "Invalid characters like # or . in address";
+				return true;
+			}
+		},
+		{
+			xtype:"textarea",
+			fieldLabel:"Textarea"
+		},
+		{
+			xtype:"checkbox",
+			fieldLabel:"Checkbox"
+		},
+		{
+			xtype:"radio",
+			fieldLabel:"Radio"
+		},
+		{
+			xtype:"datefield",
+			fieldLabel:"Datefiled",
+			msgTarget:"side"
+		},
+		{
+			xtype:"numberfield",
+			fieldLabel:"Numberfield"
+		},
+		{
+			xtype:"combobox",
+			fieldLabel:"ComboBox"
+		},
+		{
+			xtype:"label",
+			fieldLabel:"Label"
+		},
+		{
+			xtype:"radiogroup",
+			fieldLabel:"Radiogroup",
+			vertical:true,
+			columns:1,
+			items:[
+				{
+					boxLabel:"Mr",
+					name:"title"
+				},
+				{
+					boxLabel:"Mrs",
+					name:"title"
+				}
+			]
+		},{
+			xtype:"checkboxgroup",
+			fieldLabel:"Checkboxgroup",
+			vertical:true,
+			columns:1,
+			items:[
+				{
+					boxLabel:"Mr",
+					name:"title"
+				},
+				{
+					boxLabel:"Mrs",
+					name:"title"
+				}
+			]
+		},
+		{
+			// using ajax to submit the form
+			xtype:"button",
+			text:"Submit",
+			listeners:{
+				"click":function(src){
+					src.up("form").submit({
+						// for when server processing is true
+						success: function(form,action){
+							Ext.Msg.alert("Successfully Submitted");
+						},
+						failure:function(form,action) {
+							console.log(action.failureType);
+							console.log(action.result);
+							Ext.Msg.alert("Error",action.response.status + ", " + action.response.statusText);
+
+						}
+
+					});
+				}
+			}
+		},
+	],
+	// buttons:[
+	// 	{text:"Cancel"},
+	// 	{text:"Send"}
+	// ]
+
+	url:"process.php",
+	layout:"form",
+	// renderTo:Ext.getBody()
+});
+
+
+// formWindow.show();
+
+//////////////////////////////////////////////////////////
+// for toolbar
+Ext.create("Ext.toolbar.Toolbar",{
+	items:[
+	{xtype:"tbtext", text:"Sample text"},
+	{xtype:"tbseparator"},
+	{xtype:"tbspacer"},
+	{xtype:"tbfill"}
+	],
+	// renderTo:Ext.getBody()
+});
+
+
+
+
+Ext.create("Ext.panel.Panel", {
+// renderTo: Ext.getBody(),
+title: "Panel with a toolbar",
+html : "This is an example to use a toolbar",
+dockedItems: [
+	{
+	xtype: "toolbar",
+	dock: "bottom",
+	items: [
+		{
+		xtype: "tbtext",
+		text: "Item: 19"
+		},
+		{xtype:"tbseparator"},
+		{
+		xtype: "tbtext",
+		text: "English (Ghana)"
+		},
+		{xtype:"tbspacer"},
+		{
+		xtype : "combo",
+		fieldLabel : "Go to",
+		labelAlign : "right",
+		},
+		{xtype:"tbfill"},
+		{
+		text: "Print",
+		},
+		{xtype:"tbspacer"},
+		{
+		text: "Outline",
+		}
+	]
+	}
+]
+});
+
+// creating a viewport
+Ext.create("Ext.container.Viewport",{
+	layout:"border",
+	items:[{
+		
+	}]
+});
+// for the anchor layout type
+let pnl = Ext.create("Ext.Panel",{
+	layout:"anchor",
+	height:200,
+	width:200,
+
+	items:[
+		{
+			xtype:"textfield",
+			fieldLabel:"Email",
+			anchor:"90% 15%"
+		},
+		{
+			xtype: "button",
+			text: "Resize",
+			anchor : "-80 -145",
+			listeners: {
+				click: function () {
+					pnl.setWidth(pnl.getWidth() + 5);
+					pnl.setHeight(pnl.getHeight() + 5);
+				}
+			}
+		}
+	],
+	// renderTo:Ext.getBody()
+});
+// for card layout type
+Ext.create("Ext.panel.Panel", {
+height: 200, width: 200,
+title : "VBox panel",
+layout : {
+type : "vbox",
+pack : "center",
+align : "center"
+},
+defaults : {xtype : "button",margin:"10"},
+items : [
+{text : "A"},
+{text : "B"},
+{text : "C"},
+],
+// renderTo : Ext.getBody()
+});
+// closeable tabs
+// Accordian layout
+Ext.create("Ext.panel.Panel", {
+	height: 300, width: 300,
+	title: "Accordion layout ",
+	layout: {
+		type : "accordion",
+		multi : true //flase for allowing only one tab to show at a time
+	},
+	items: [
+		{
+		title: "Inbox",
+		html : "Inbox contents"
+		},
+		{
+		title: "Outbox",
+		html: "Outbox contents"
+		},
+		{
+			title: "Sent Items",
+		html: "Sent Items"
+		}
+	],
+	// renderTo: Ext.getBody()
+});
+
+// table layout
+Ext.create("Ext.panel.Panel", {
+height: 500, width: 500,
+title: "Table layout ",
+layout: {
+	type: "table",
+	columns: 2
+},
+defaults: {
+	xtype: "button",
+	margin: "60"
+},
+items: [
+	{
+	text: "A"
+	},
+	{
+	text: "B"
+	},
+	{
+	text: "C"
+	},
+	{
+	text: "D"
+	},
+	{
+	text: "E"
+	},
+	{
+	text: "F"
+	}
+],
+// renderTo: Ext.getBody()
+});
+
+// column layout
+Ext.create('Ext.panel.Panel', {
+title: 'Column',
+width: 1000, height: 200,
+layout: 'column',
+defaults : {margin : "10"},
+items: [
+	{
+	title : "Folder List",
+	html : "Folder List contents",
+	columnWidth : 0.20
+	},
+	{
+	title: "Inbox",
+	html: "Inbox contents",
+	columnWidth : 0.30
+	},
+	{
+	html: "Mail contents",
+	columnWidth: 0.50
+	}
+],
+// renderTo: Ext.getBody()
+});
+
+////////////////////////////////////////////
+// borderlayout
+Ext.create("Ext.Panel",{
+	layout:"border",
+	padding:30,
+	id:"main",
+	height:1000,
+	width:1000,
+	items:[
+		{
+			xtype:"panel",
+			html:"North",
+			region:"north"
+		},{
+			xtype:"panel",
+			html:"Main contents",
+			region:"center"
+		},
+		{
+			xtype:"panel",
+			html:"Side bar",
+			collapsable:false,
+			split:true,
+			region:"west"
+		}
+	],
+	// renderTo:Ext.getBody()
+});
+// Card layout
+let xt = Ext.create("Ext.panel.Panel",{
+layout : "card",padding:30,id:"mainCard",
+items : [
+		{
+		xtype : "panel",
+		title : "Screen 1",
+		items : [
+				{
+					xtype : "button",
+					text : "go to screen 2",
+					handler : function(){
+						xt.getCmp("mainCard").getLayout().setActiveItem("Screen2");
+					}
+				}
+				]
+		},
+		{
+		xtype : "panel",
+		id:"Screen2",
+		title : "Screen 2",
+		items : [
+		{
+			xtype : "button",
+			text : "go to screen 3",
+			handler : function(){
+				Ext.getCmp("mainCard").getLayout().setActiveItem(2);
+			}
+		}
+		]
+		},
+		{
+			xtype : "panel",
+			title : "Screen 3"
+		}
+],
+// renderTo : Ext.getBody()
+});
+
+// card layout with muliple screens in classes
+// Ext.define("Screen1",{
+// extend : "Ext.panel.Panel",
+// xtype : "screen1",
+// title : "Screen 1",
+// items : [
+// {
+// xtype : "button",
+// text : "Go to Screen 2",
+// handler : function(){
+// Ext.getCmp("viewport").getLayout().setActiveItem(1);
+// }
+// }
+// ]
+// });
+// Ext.define("Screen2",{
+// extend : "Ext.panel.Panel",
+// xtype : "screen2",
+// title : "Screen 2",
+// items : [
+// {
+// xtype : "button",
+// text : "Go to Screen 3",
+// handler : function(){
+// Ext.getCmp("viewport").getLayout().setActiveItem(2);
+// }
+// }
+// ]
+// });
+// Ext.define("Screen3",{
+// extend : "Ext.panel.Panel",
+// xtype : "screen3",
+// title : "Screen 3"
+// });
+// Ext.onReady(function(){
+// Ext.create("Ext.container.Viewport",{
+// layout : "card",padding:30,id:"viewport",
+// items : [
+// {
+// xtype : "screen1",
+// id : "screen1"
+// },
+// {
+// xtype : "screen2",
+// id : "screen2"
+// },
+// {
+// xtype : "screen3",
+// id : "screen3"
+// }
+// ],
+// renderTo : Ext.getBody()
+// });
+// }
+// );
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////
+// for data store
+// Ext.create("Ext.data.Connection").request(
+// 	Ext.create("Ext.data.Request",{
+// 		url:"books.txt",
+// 		success:function(xhr){
+// 			console.log(xhr.responseText);
+// 		},
+// 		failure:function(xhr){
+// 			console.log("Error: "+ xhr.statusText)
+// 		}
+// 	})
+// )
+// ///////////// best way to make a request fpr a resource on the server
+Ext.Ajax.request(
+{
+	url: "books.txt",
+	success: function (xhr) {
+		// console.log(xhr.responseText);
+},
+	failure : function(xhr){
+		// console.log("Error: " + xhr.statusText);
+	}
+});
+
+
+// /////////////////model
+// the model represents a row of data and the fields are fields coming in 
+// the database
+Ext.define("Country",{
+	extend:"Ext.data.Model",
+	fields:[
+		{name: "name", type: "string"},
+		{name: "capital", type: "string"},
+		{name: "continent", type: "string",defaultValue:"Europe"},
+		{name: "population", type: "number", mapping: "country_population"}
+	],
+	// if u want to change the default id property of the model
+	// here making one of the fields as an id
+	// idProperty:"name"
+});
+
+// create an instance of the class then
+let records = Ext.create("Country",{
+	name: "France", capital: "Paris",continent:"Africa", population: 6543655,id: "101",
+});
+
+// now you can get the values from the data
+// console.log(records.get("name"))
+// console.log(records.get("capital"))
+// console.log(records.get("population"))
+// console.log(records.get("continent"))
+// console.log(records.getId())
+
+// Ext.define("Continent", {
+// 	extend: "Ext.data.Model",
+// 	fields: ["name"]
+// });
+// Ext.define("City", {
+// 	extend: "Ext.data.Model",
+// 	fields: ["name"]
+// });
+// Ext.define("CountryDetails", {
+// 	extend: "Ext.data.Model",
+// 	fields: ["id","population"],
+// });
+
+// ////////////////////////////////
+// for datastore
+
+let dataStore = Ext.create("Ext.data.Store",{
+	fields:["name","phoneNumber","age","mothersName"]
+});
+
+// now supposing you have multiple records for example results from the select all
+dataStore.add({name: "mothersName", mothersName: "age", age: 49.99,id:"101"});
+dataStore.add({name: "Beginning", mothersName: "Robert Pickering", age: 50.99,id:"102"});
+dataStore.add({name: "Sorce kw", mothersName: "age", age:100,id:"103"});
+
+// print the values for each row
+dataStore.each(function(row){
+	// console.log(row.get("name")+" "+row.get("age") );
+})
+
+// when you sort either ASC or DESC
+dataStore.sort("name","ASC")
+// yoou can filter
+dataStore.filter("age",49.99);
+
+// you can search for a particular row using an attribute then get all attributes of that row
+var recordFind = dataStore.findRecord("name","mothersName");
+// console.log(recordFind.get("age"))
+
+// suppose you want to get all age greater than 50
+let ageFilter50= dataStore.queryBy(function(row){
+	return row.get("age")>50
+})
+
+// loop through the query by to get whaaaat has being filtered
+ageFilter50.each(function (book) {
+// console.log(book.get("age"));
+});
+
+// defining data store for the books
+var bookStore = Ext.create("Ext.data.Store", {
+fields: ["title", "author", "price"],
+data: [
+{ title: "Zend Framework", author: "Zend", price: 49.99 },
+{ title: "Beginning F#", author: "Robert Pickering", price: 44.99 },
+{ title: "Pro Hadoop", author: "Jason Venner", price: 39.99 }
+],
+autoLoad : false
+});
+
+// onload function
+bookStore.on("load", function (src) {
+console.log("loaded " + src.getCount());
+});
+
+// bookStore.load();
+
+// on datastore update
+bookStore.on("update", function (src, record) {
+// console.log("updated " + record.get("title"));
+});
+
+bookStore.on("datachanged", function (src) {
+// console.log("datachanged " + src.getCount());
+});
+bookStore.add({ title: "Pro Spring Security",author:"Carlo Scarioni",price:49.99 });
+bookStore.getAt(0).set("price", 50.00);
+////////////////////////////////////////////////////////////////////////////
+// extjs reader
+
+// create a datastore with the data
+var bookStore = Ext.create("Ext.data.Store", {
+fields: ["title", "author", "price"],
+data: {
+library: [
+{ title: "Zend Framework", author: "Zend", price: 49.99 },
+{ title: "Beginning F#", author: "Robert Pickering", price: 44.99 },
+{ title: "Pro Hadoop", author: "Jason Venner", price: 39.99 }
+]
+},
+proxy: {
+	type: "memory",
+	reader: {
+		type : "json",
+		root : "library"
+	}
+}
+});
+
+
+// creating a datastore to dave the the xml documents of books
+var bookStore = Ext.create("Ext.data.Store", {
+fields: [
+{ name: "title", mapping: "Title" },
+{ name: "author", mapping: "Author" },
+{ name: "price", mapping: "Price",type:"number" }
+],
+autoLoad: true,
+proxy: {
+type: "ajax",
+url: "books.xml",
+reader: {
+type: "xml",
+record: "Book",
+root : "Books"
+}
+}
+});
+
+// ///////////////////////////////////////////////////
+// ////////////////////////dealing with data proxy
+// defining the data model for the data to fetch
+
+Ext.create("Country",{
+	extend:"Ext.data.model",
+	fields:["name","capital"]
+});
+// creating a proxy instance to 
+
+let ajaxProxy = Ext.create("Ext.data.proxy.Ajax",{
+	url:"countries.txt",
+	model:"Country",
+	reader:{
+		type:"json",
+		root:"countriesInEurope"
+	}
+});
+
+var readOperation = Ext.create("Ext.data.Operation", {
+	action: "read"
+});
+ajaxProxy.read(readOperation, function (src) {
+	var records = src.getRecords();
+	for (var i = 0; i < records.length; i++) {
+		console.log(records[i].get("name"));
+	}
+});
+
+
+// xTemplate is used to introduce raw html into extjs
+// more like <pre>
+
+var countryStore = Ext.create('Ext.data.Store', {
+fields: ["name","capital"],
+data: [
+	{ name: 'India', capital: "New Delhi" },
+	{ name: "USA", capital: "Washington" },
+	{ name: "UK", capital: "London" }
+]
+});
+countryStore.add({name: 'Ghana', capital: "Accra"})
+// cerating an XTemplate
+var tpl = Ext.create("Ext.XTemplate",
+'<tpl for=".">',
+'<p>{data.name}, <i>{data.capital}</i></p><br/>',
+'</tpl>');
+// creating a pnel and looping through it
+
+Ext.create("Ext.panel.Panel",{
+title : "Countries",
+html : tpl.apply(countryStore),
+renderTo : Ext.getBody()
+});
+
+// //////////////////////////////////////// creating a combo bix
+// creating a datastore
+
+var bookStore = Ext.create("Ext.data.Store", {
+fields: ["isbn","title", "author"],
+data: [
+{ isbn: "1430219424", title: "Zend Framework", author: "Zend" },
+{ isbn: "1430223898", title: "Beginning F#", author: "Robert Pickering" },
+{ isbn: "1430219424", title: "Pro Hadoop", author: "Jason Venner" }
+]
+});
+
+// cerating the combpx box nd displaying the values
+Ext.create("Ext.form.field.ComboBox", {
+xtype:"combobox",
+fieldLabel : "Book",
+store : bookStore,
+displayField : "title",
+valueField : "isbn",
+editable:true,
+//////////// auto suggesst
+// typeAhead:true,
+// typeAheadDelay:5,
+multiSelect : true,
+renderTo:Ext.getBody()
+});
+
+// //////////////////// Displaying a grid
+var movieStore = Ext.create("Ext.data.Store", {
+fields: ["title", "rent", "buy"],
+data: [
+{title: "Forrest Gump", rent: 2.99,buy:6.99},
+{title: "Cast Away", rent: 3.99,buy:13.46},
+{title: "Apollo 13", rent: 3.99,buy:7.99}
+]
+});
+
+// creating the grid
+Ext.create("Ext.grid.Panel", {
+store: movieStore,
+title : "Tom Hanks collection",
+width : 500,
+columns: [
+{xtype : "rownumberer"},
+{
+text: 'Movie',
+dataIndex: 'title',
+resizable: false,
+enableColumnHide: false,
+renderer: Ext.util.Format.uppercase
+},
+{
+text: 'Rent',
+dataIndex: 'rent',
+sortable: false,
+renderer: Ext.util.Format.usMoney
+},
+{
+text: 'Buy',
+dataIndex: 'buy',
+renderer: function (value) {
+return "& " + value;
+}
+},
+{
+text: 'Add',
+xtype : "actioncolumn",
+items:[
+{
+tooltip:"Edit",
+icon : "edit.jpg",
+handler : function(grid,rowNum,colNum){
+//Edit logic
+}
+},
+{
+tooltip:"Delete",
+icon : "delete.jpg",
+handler : function(grid,rowNum,colNum){
+//Delete logic
+}
+}
+]
+}
+],
+renderTo:Ext.getBody()
+
+});
+///////////////////////////////////
+// for grid editing
+Ext.create("Ext.grid.Panel", {
+store: movieStore,
+height : 150,
+width:500,
+title : "Tom Hanks collection",
+selType : "cellmodel",
+plugins : [
+{
+ptype : "cellediting",
+clicksToEdit : 2
+}
+],
+columns: [
+{
+text: 'Movie',
+dataIndex: 'title',
+},
+{
+text: 'Rent',
+dataIndex: 'rent',
+},
+{
+text: 'Buy',
+dataIndex: 'buy',
+editor : {
+xtype : "numberfield",
+step : 0.01
+}
+},
+{
+text: 'Blue-ray',
+dataIndex: 'bluerayFormat',
+xtype : 'booleancolumn',
+trueText : "Available",
+falseText : "Not available",
+editor : {
+xtype : "checkboxfield",
+}
+},
+{
+text: 'DVD release date',
+dataIndex: 'dvdReleaseDate',
+xtype : "datecolumn",
+format : "M d, Y"
+}
+],
+renderTo:Ext.getBody()
+});
+
+// paginated grid panel
+var store = Ext.create("Ext.data.Store", {
+fields: ["sno", "value"],
+pageSize : 50,
+autoLoad : true,
+proxy : {
+type : "ajax",
+url : "server.ashx",
+reader : {
+type : "json",
+root : "output",
+totalProperty : "total"
+}
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+</script>
